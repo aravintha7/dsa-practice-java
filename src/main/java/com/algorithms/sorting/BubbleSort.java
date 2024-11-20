@@ -2,9 +2,20 @@ package main.java.com.algorithms.sorting;
 
 import main.java.com.utils.ArrayUtils;
 
-public class BubbleSort {
+/**
+ * Class for demonstrating the bubble sort algorithm.
+ */
+public final class BubbleSort {
+
+    /**
+     * Private constructor to prevent instantiation.
+     */
+    private BubbleSort() {
+    }
+
     /**
      * Main method for demonstrating the bubble sort algorithm.
+     * 
      * @param args Command-line arguments, ignored.
      */
     public static void main(String[] args) {
@@ -25,10 +36,10 @@ public class BubbleSort {
      *
      * @param arr the array to be sorted
      */
-    public static void bubbleSort(int[] arr){
-        for(int i = 0; i < arr.length - 1 ; i++){
-            for(int j = 0; j < arr.length - 1 - i ; j++){
-                ArrayUtils.swap(arr, j, j+1);
+    public static void bubbleSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                ArrayUtils.swap(arr, j, j + 1);
             }
         }
     }
