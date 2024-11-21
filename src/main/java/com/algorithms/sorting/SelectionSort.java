@@ -22,7 +22,7 @@ public class SelectionSort {
      * @param args Command-line arguments, ignored.
      */
     public static void main(String[] args) {
-        int[] arr = { 5, 4, 3, 2, 1 };
+        int[] arr = { 5, 4, 3, 2, 1, 1, 2, 3 };
         arr = selectionSort(arr);
         for (int i : arr) {
             System.out.print(i + " ");

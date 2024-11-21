@@ -19,7 +19,7 @@ public final class BubbleSort {
      * @param args Command-line arguments, ignored.
      */
     public static void main(String[] args) {
-        int[] arr = { 5, 4, 3, 2, 1 };
+        int[] arr = { 5, 4, 3, 2, 1, 1, 2, 3 };
         bubbleSort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
@@ -38,8 +38,15 @@ public final class BubbleSort {
      */
     public static void bubbleSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
+            boolean swapped = false;
             for (int j = 0; j < arr.length - 1 - i; j++) {
-                ArrayUtils.swap(arr, j, j + 1);
+                if (arr[j] > arr[j + 1]) {
+                    ArrayUtils.swap(arr, j, j + 1);
+                    swapped = true;
+                }
+            }
+            if (!swapped) {
+                break;
             }
         }
     }
