@@ -47,6 +47,9 @@ public class QuickSort {
     }
 
     public static void sort(int[] arr, String type) {
+        if (type == null) {
+            type = Constant.THREE_MEDIAN_PARTITIONS;
+        }
         switch (type) {
             case Constant.PIVOT_AT_START:
                 SortByPivotAtStart(arr, 0, arr.length - 1);
