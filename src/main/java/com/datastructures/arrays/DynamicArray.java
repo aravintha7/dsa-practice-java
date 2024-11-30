@@ -15,14 +15,18 @@ public class DynamicArray {
 
         // System.out.println("Element occur more than n/2: " +
         // dArray.elementMoreThanHalf(arr));
-        int[] arr = { 11, 11, 1, 21, 21 };
+        int[] arr = { 0, 3, 0, 5, 1, 0, 0, 4 };
 
-        System.out.println("The duplicates are " + dArray.findDuplicates(arr));
-        QuickSort.sort(arr, null);
-        int unique = dArray.uniqueElements(arr);
-        System.out.println("The unique elements in the array " + unique);
-        System.out.println("The array after removing the duplicates ");
-        ArrayUtils.printArray(arr, unique);
+        // System.out.println("The duplicates are " + dArray.findDuplicates(arr));
+        // QuickSort.sort(arr, null);
+        // int unique = dArray.uniqueElements(arr);
+        // System.out.println("The unique elements in the array " + unique);
+        // System.out.println("The array after removing the duplicates ");
+        // ArrayUtils.printArray(arr, unique);
+
+        System.out.println("Pushing zeros to the end...");
+        dArray.pushZerosToEnd(arr);
+        ArrayUtils.printArray(arr);
     }
 
     /**
@@ -127,5 +131,21 @@ public class DynamicArray {
             }
         }
         return i + 1;
+    }
+
+    void pushZerosToEnd(int[] arr) {
+        // code here
+        int ptr = 0, itr = 0;
+        while (itr < arr.length) {
+            if (arr[itr] != 0) {
+                if (itr != ptr) {
+                    ArrayUtils.swap(arr, ptr, itr);
+                }
+                itr++;
+                ptr++;
+            } else {
+                itr++;
+            }
+        }
     }
 }
