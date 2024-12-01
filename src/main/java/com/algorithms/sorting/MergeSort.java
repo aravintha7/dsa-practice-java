@@ -2,11 +2,24 @@ package main.java.com.algorithms.sorting;
 
 import main.java.com.utils.ArrayUtils;
 
+/**
+ * Class for demonstrating the merge sort algorithm.
+ */
 public final class MergeSort {
+    /**
+     * Private constructor to prevent instantiation.
+     */
     private MergeSort() {
 
     }
 
+    /**
+     * Main method for demonstrating the merge sort algorithm.
+     * Initializes an array with random values, sorts it using merge sort,
+     * and prints the time taken to sort the array.
+     * 
+     * @param args Command-line arguments, ignored.
+     */
     public static void main(String[] args) {
         int[] arr = ArrayUtils.GetRandomArray(10000000, 10000, -10000);
         int j = arr.length - 1;
@@ -20,6 +33,18 @@ public final class MergeSort {
         // ArrayUtils.printArray(arr);
     }
 
+    /**
+     * Sorts an array using the merge sort algorithm.
+     * 
+     * Time Complexity:
+     * Best Case: O(nlog(n)) when the array is already sorted.
+     * Average Case: O(nlog(n))
+     * Worst Case: O(nlog(n)) when the array is sorted in reverse order.
+     * 
+     * @param arr the array to be sorted
+     * @param i   the start index of the array
+     * @param j   the end index of the array
+     */
     public static void sort(int[] arr, int i, int j) {
         if (i < j) {
             int mid = i + (j - i) / 2;
@@ -29,6 +54,17 @@ public final class MergeSort {
         }
     }
 
+    /************* ✨ Codeium Command ⭐ *************/
+    /**
+     * Merges two sorted sub-arrays of the given array into a single sorted
+     * sub-array.
+     * 
+     * @param arr the array to be merged
+     * @param i   the start index of the array
+     * @param j   the end index of the array
+     * @param mid the middle index of the array
+     */
+    /****** 27f97795-1783-44f5-b3e9-eb2305ef9d6f *******/
     public static void merge(int[] arr, int i, int j, int mid) {
         // length arr1
         int l1 = mid - i + 1;
