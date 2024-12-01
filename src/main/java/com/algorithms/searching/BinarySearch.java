@@ -8,6 +8,7 @@ public class BinarySearch {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number to search: ");
         int element = sc.nextInt();
+        sc.close();
         int position = binarySearch(arr, element);
 
         if (position != -1) {
