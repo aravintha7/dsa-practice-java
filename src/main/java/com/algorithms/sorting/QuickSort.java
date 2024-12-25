@@ -27,20 +27,23 @@ public class QuickSort {
         // ArrayUtils.printArray(arr);
 
         int[] arr1 = ArrayUtils.GetRandomArray(10000000, 10000, -10000);
+        sort(arr1, Constant.THREE_MEDIAN_PARTITIONS);
         long startTime = System.nanoTime();
         sort(arr1, Constant.THREE_MEDIAN_PARTITIONS);
         System.out
                 .println("Time taken to sort the array by three median partitions: " + (System.nanoTime() - startTime));
 
-        int[] arr2 = ArrayUtils.GetRandomArray(10000000, 10000, -10000);
-        startTime = System.nanoTime();
-        sort(arr2, Constant.PIVOT_AT_START);
-        System.out.println("Time taken to sort the array by pivot at start: " + (System.nanoTime() - startTime));
+        // int[] arr2 = ArrayUtils.GetRandomArray(10000000, 10000, -10000);
+        // startTime = System.nanoTime();
+        // sort(arr2, Constant.PIVOT_AT_START);
+        // System.out.println("Time taken to sort the array by pivot at start: " +
+        // (System.nanoTime() - startTime));
 
-        int[] arr3 = ArrayUtils.GetRandomArray(10000000, 10000, -10000);
-        startTime = System.nanoTime();
-        sort(arr3, Constant.PIVOT_AT_END);
-        System.out.println("Time taken to sort the array by pivot at end: " + (System.nanoTime() - startTime));
+        // int[] arr3 = ArrayUtils.GetRandomArray(10000000, 10000, -10000);
+        // startTime = System.nanoTime();
+        // sort(arr3, Constant.PIVOT_AT_END);
+        // System.out.println("Time taken to sort the array by pivot at end: " +
+        // (System.nanoTime() - startTime));
 
         // System.out.println("\nSorted array: ");
         // ArrayUtils.printArray(arr);

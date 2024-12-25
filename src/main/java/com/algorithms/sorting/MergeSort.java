@@ -24,81 +24,57 @@ public final class MergeSort {
         int[] arr = ArrayUtils.GetRandomArray(10000000, 10000, -10000);
         int j = arr.length - 1;
         // ArrayUtils.printArray(arr);
-        sort(arr, 0, j);
+        // sort(arr, 0, j);
         long startTime = System.nanoTime();
         sort(arr, 0, j);
         System.out
-                .println("Time taken to sort the array by merge sort: " + (System.nanoTime() - startTime));
+                .println("Time taken to sort the array by merge sort: " + (System.nanoTime()
+                        - startTime));
 
         // ArrayUtils.printArray(arr);
     }
 
-    /**
-     * Sorts an array using the merge sort algorithm.
-     * 
-     * Time Complexity:
-     * Best Case: O(nlog(n)) when the array is already sorted.
-     * Average Case: O(nlog(n))
-     * Worst Case: O(nlog(n)) when the array is sorted in reverse order.
-     * 
-     * @param arr the array to be sorted
-     * @param i   the start index of the array
-     * @param j   the end index of the array
-     */
     public static void sort(int[] arr, int i, int j) {
         if (i < j) {
             int mid = i + (j - i) / 2;
             sort(arr, i, mid);
             sort(arr, mid + 1, j);
-            merge(arr, i, j, mid);
+            conquer(arr, i, mid, j);
         }
     }
 
-    /************* ✨ Codeium Command ⭐ *************/
-    /**
-     * Merges two sorted sub-arrays of the given array into a single sorted
-     * sub-array.
-     * 
-     * @param arr the array to be merged
-     * @param i   the start index of the array
-     * @param j   the end index of the array
-     * @param mid the middle index of the array
-     */
-    /****** 27f97795-1783-44f5-b3e9-eb2305ef9d6f *******/
-    public static void merge(int[] arr, int i, int j, int mid) {
-        // length arr1
-        int l1 = mid - i + 1;
-        // length arr2
-        int l2 = j - mid;
+    public static void conquer(int[] arr, int i, int mid, int j) {
+        int n1 = mid - i + 1;
+        int n2 = j - mid;
+        int[] arr1 = new int[n1];
+        int[] arr2 = new int[n2];
 
-        int[] arr1 = new int[l1];
-        int[] arr2 = new int[l2];
-
-        // populate the existing arr to these divided array
-        for (int k = 0; k < l1; k++) {
-            arr1[k] = arr[i + k];
+        int p1 = 0, p2 = i;
+        while (p1 < n1) {
+            arr1[p1++] = arr[p2++];
         }
 
-        for (int k = 0; k < l2; k++) {
-            arr2[k] = arr[mid + 1 + k];
+        p1 = 0;
+        p2 = mid + 1;
+        while (p1 < n2) {
+            arr2[p1++] = arr[p2++];
         }
 
-        int p1 = 0, p2 = 0;
-        int k = i;
-        while (p1 < l1 && p2 < l2) {
-            if (arr1[p1] <= arr2[p2]) {
-                arr[k++] = arr1[p1++];
+        // merge the both array into the given array
+        int k = i, l = 0, m = 0;
+        while (l < n1 && m < n2) {
+            if (arr1[l] <= arr2[m]) {
+                arr[k++] = arr1[l++];
             } else {
-                arr[k++] = arr2[p2++];
+                arr[k++] = arr2[m++];
             }
         }
 
-        // remaining elements
-        while (p1 < l1) {
-            arr[k++] = arr1[p1++];
+        while (l < n1) {
+            arr[k++] = arr1[l++];
         }
-        while (p2 < l2) {
-            arr[k++] = arr2[p2++];
+        while (m < n2) {
+            arr[k++] = arr2[m++];
         }
     }
 }
