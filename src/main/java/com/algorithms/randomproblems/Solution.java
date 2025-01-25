@@ -6,16 +6,61 @@ import main.java.com.datastructures.trees.TreeNode;
 
 public class Solution {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int x = sc.nextInt();
-        int y = sc.nextInt();
-        sc.close();
-        if (boxFitInTile(a, b, x, y)) {
-            System.out.println("Escape is possible.");
-        } else {
-            System.out.println("Box cannot be dropped.");
+        // Scanner sc = new Scanner(System.in);
+        // int a = sc.nextInt();
+        // int b = sc.nextInt();
+        // int x = sc.nextInt();
+        // int y = sc.nextInt();
+        // sc.close();
+        // if (boxFitInTile(a, b, x, y)) {
+        // System.out.println("Escape is possible.");
+        // } else {
+        // System.out.println("Box cannot be dropped.");
+        // }
+        // printNTimesLetters("a100b3c400");
+        printTree(40);
+    }
+
+    public static void printTree(int rowSize) {
+        int spaceSize = rowSize - 1;
+        for (int i = 0; i < rowSize; i++) {
+            for (int j = 0; j < spaceSize; j++)
+                System.out.print(" ");
+            for (int j = 0; j <= 2 * i; j++)
+                System.out.print("*");
+            System.out.println();
+            spaceSize--;
+        }
+
+        // Print the trunk of the tree
+        for (int j = 0; j < rowSize - 1; j++)
+            System.out.print(" ");
+        System.out.print("*");
+    }
+
+    public static void printNTimesLetters(String s) {
+        int len = s.length();
+        // StringBuilder sb = new StringBuilder();
+        int i = 0;
+        char prevChar = 0;
+        while (i < len) {
+            char currChar = s.charAt(i);
+            if (Character.isLetter(currChar))
+                prevChar = currChar;
+            else {
+                int j = i;
+                StringBuilder currNumber = new StringBuilder();
+                while (j < len && Character.isDigit(s.charAt(j))) {
+                    currNumber.append(s.charAt(j));
+                    j++;
+                }
+                int currNum = Integer.parseInt(currNumber.toString());
+                for (int k = 0; k < currNum; k++) {
+                    // sb.append(prevChar);
+                    System.out.print(prevChar);
+                }
+            }
+            i++;
         }
     }
 
@@ -120,4 +165,5 @@ public class Solution {
             return false;
         return isTreeSquare(p.left, q.left) && isTreeSquare(p.right, q.right);
     }
+
 }
